@@ -247,5 +247,6 @@ function applyDefaultOptions({
 		rehypePlugins: options.rehypePlugins ?? defaults.rehypePlugins,
 		shikiConfig: options.shikiConfig ?? defaults.shikiConfig,
 		optimize: options.optimize ?? defaults.optimize,
+		skipRehypeHeadingIds: options.skipRehypeHeadingIds ?? defaults.skipRehypeHeadingIds,
 	};
 }

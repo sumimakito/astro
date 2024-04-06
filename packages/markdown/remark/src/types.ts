@@ -51,6 +51,7 @@ export interface AstroMarkdownOptions {
 	remarkRehype?: RemarkRehype;
 	gfm?: boolean;
 	smartypants?: boolean;
+	skipRehypeHeadingIds?: boolean;
 }
 
 export interface MarkdownProcessor {

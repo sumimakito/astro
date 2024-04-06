@@ -1412,6 +1412,14 @@ export interface AstroUserConfig {
 		 * ```
 		 */
 		remarkRehype?: RemarkRehype;
+		/**
+		 * @docs
+		 * @name markdown.skipRehypeHeadingIds
+		 * @type {boolean}
+		 * @default `false`
+		 * Set to `true` to skip the default Rehype heading ID collection after all user plugins. This is useful for avoiding executing `rehypeHeadingIds` multiple times when it will be manually executed.
+		 */
+		skipRehypeHeadingIds?: boolean;
 	};
 
 	/**

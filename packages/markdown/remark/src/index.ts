@@ -43,6 +43,7 @@ export const markdownConfigDefaults: Required<AstroMarkdownOptions> = {
 	remarkRehype: {},
 	gfm: true,
 	smartypants: true,
+	skipRehypeHeadingIds: false,
 };
 
 // Skip nonessential plugins during performance benchmark runs
@@ -62,6 +63,7 @@ export async function createMarkdownProcessor(
 		remarkRehype: remarkRehypeOptions = markdownConfigDefaults.remarkRehype,
 		gfm = markdownConfigDefaults.gfm,
 		smartypants = markdownConfigDefaults.smartypants,
+		skipRehypeHeadingIds = markdownConfigDefaults.skipRehypeHeadingIds,
 	} = opts ?? {};
 
 	const loadedRemarkPlugins = await Promise.all(loadPlugins(remarkPlugins));
@@ -114,7 +116,7 @@ export async function createMarkdownProcessor(
 	parser.use(rehypeImages());
 
 	// Headings
-	if (!isPerformanceBenchmark) {
+	if (!isPerformanceBenchmark && !skipRehypeHeadingIds) {
 		parser.use(rehypeHeadingIds);
 	}
 

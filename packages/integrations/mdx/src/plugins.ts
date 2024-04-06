@@ -76,7 +76,7 @@ function getRehypePlugins(mdxOptions: MdxOptions): PluggableList {
 
 	rehypePlugins.push(...mdxOptions.rehypePlugins);
 
-	if (!isPerformanceBenchmark) {
+	if (!isPerformanceBenchmark && !mdxOptions.skipRehypeHeadingIds) {
 		// getHeadings() is guaranteed by TS, so this must be included.
 		// We run `rehypeHeadingIds` _last_ to respect any custom IDs set by user plugins.
 		rehypePlugins.push(rehypeHeadingIds, rehypeInjectHeadingsExport);
